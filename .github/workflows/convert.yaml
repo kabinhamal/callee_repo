@@ -1,0 +1,36 @@
+
+name: callee repo
+on:
+ repository_dispatch:
+    types: [repo_dispatch1]
+env:
+      payload: ${{ github.event.client_payload.payload}}
+      ###  : "[${{ join(github.event.client_payload.payload1, ',') }}]"   
+
+
+jobs:
+    
+    called-repo:
+       # if: endswith(github.ref, 'users-add-deployment')
+        runs-on: 
+        - ubuntu-latest
+      
+        steps: 
+
+          - uses: actions/checkout@v3
+          
+          - name: print parameter
+            shell: bash
+            run: |
+              echo "${{env.payload}}"
+              
+          - name: json conversion 
+            id: dispatch
+            uses: kabinhamal/convert/dispatch@main
+            with:
+              payload: ${{ env.payload }}                     
+              TARGET_REPO: ${{ env.TARGET_REPO }} 
+              func_token: ${{secrets.func_token}}
+              workflow_id: ${{ env.workflow_id }} 
+              
+            
