@@ -22,6 +22,6 @@ jobs:
           - name: print parameter
             shell: bash
             run: |
-              echo "payload: ${{env.payload}}"
+              echo "${{env.payload}}"
             
 
