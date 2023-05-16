@@ -1,0 +1,27 @@
+
+name: callee repo
+on:
+ repository_dispatch:
+    types: [repo_dispatch]
+env:
+      payload: ${{ github.event.client_payload.payload}}
+      ###  : "[${{ join(github.event.client_payload.payload1, ',') }}]"   
+
+
+jobs:
+    
+    called-repo:
+       # if: endswith(github.ref, 'users-add-deployment')
+        runs-on: 
+        - ubuntu-latest
+      
+        steps: 
+
+          - uses: actions/checkout@v3
+          
+          - name: print parameter
+            shell: bash
+            run: |
+              echo "payload: ${{env.payload}}"
+            
+
