@@ -10,7 +10,7 @@ env:
 
 jobs:
     
-    called-repo:
+    called-repo-feature:
        # if: endswith(github.ref, 'users-add-deployment')
         runs-on: 
         - ubuntu-latest
