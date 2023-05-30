@@ -3,6 +3,8 @@ name: feature_branch
 on:
  repository_dispatch:
     types: [repo_dispatch]
+    branches:
+      - feature
 env:
       payload: ${{ github.event.client_payload.payload}}
       ###  : "[${{ join(github.event.client_payload.payload1, ',') }}]"   
