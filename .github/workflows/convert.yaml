@@ -1,5 +1,5 @@
 
-name: callee repo
+name: feature_branch
 on:
  repository_dispatch:
     types: [repo_dispatch]
