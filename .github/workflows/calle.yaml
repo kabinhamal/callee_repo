@@ -1,8 +1,8 @@
 
-name: callee repo
+name: callee-repo-feature
 on:
  repository_dispatch:
-    types: [repo_dispatch1]
+    types: [repo_dispatch1_feature]
     branches:
       - feature
 env:
