@@ -24,13 +24,13 @@ jobs:
             run: |
               echo "${{env.payload}}"
               
-          - name: json conversion 
-            id: dispatch
-            uses: kabinhamal/callee_repo/convert@main
-            with:
-              payload: ${{ env.payload }}                     
-              TARGET_REPO: ${{ env.TARGET_REPO }} 
-              func_token: ${{secrets.func_token}}
-              workflow_id: ${{ env.workflow_id }} 
+#           - name: json conversion 
+#             id: dispatch
+#             uses: kabinhamal/callee_repo/convert@main
+#             with:
+#               payload: ${{ env.payload }}                     
+#               TARGET_REPO: ${{ env.TARGET_REPO }} 
+#               func_token: ${{secrets.func_token}}
+#               workflow_id: ${{ env.workflow_id }} 
               
             
